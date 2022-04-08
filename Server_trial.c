@@ -17,11 +17,10 @@ int main(int argc, char *argv[])
     int result;
     int nread;
     int x;
-    int val;
+    int val=1;
 
     listensock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
-    val = 1;
     result = setsockopt(listensock, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
     if (result < 0)
     {
