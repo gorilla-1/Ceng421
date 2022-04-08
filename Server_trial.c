@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     result = setsockopt(listensock, SOL_SOCKET, SO_REUSEADDR, &val, sizeof(val));
     if (result < 0)
     {
-        perror("server1");
+        perror("Server");
         return 0;
     }
 
@@ -35,14 +35,14 @@ int main(int argc, char *argv[])
     result = bind(listensock, (struct sockaddr *)&sAddr, sizeof(sAddr));
     if (result < 0)
     {
-        perror("server1");
+        perror("Server");
         return 0;
     }
 
     result = listen(listensock, 5);
     if (result < 0)
     {
-        perror("server1");
+        perror("Server");
         return 0;
     }
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
         result = select(FD_SETSIZE, &testset, NULL, NULL, NULL);
         if (result < 1)
         {
-            perror("server1");
+            perror("Server");
             return 0;
         }
         for (x = 0; x < FD_SETSIZE; x++)
